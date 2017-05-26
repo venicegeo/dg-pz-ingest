@@ -30,29 +30,18 @@ node {
     sh """
       cp target/piazza-ingest-1.0.0.jar ${root}/pz-ingest.jar
     """
-    cfBgDeploy()
+    cfPush
   }
 
   stage('Integration Testing') {
     postman()
   }
    
-  stage('Reset') {
-    git([
-      url: env.GIT_URL ? env.GIT_URL : 'https://github.com/venicegeo/pz-ingest',
-      branch: "master"
-    ])
-  }
-
   stage('Staging Deploy') {
     cfPush {
       cfDomain  = 'apps.sys.coastline.dg-cf-test.net'
       cfSpace   = 'stage'
-    }
-    cfBgDeploy {
       ldapCredentialId = 'pcf_user'
-      cfDomain  = 'apps.sys.coastline.dg-cf-test.net'
-      cfSpace   = 'stage'
     }
   }
 
