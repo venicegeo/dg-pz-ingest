@@ -27,7 +27,6 @@ node {
   }
 
   stage('CI Deploy') {
-    ldapCredentialId = pcf_user
     sh """
       cp target/piazza-ingest-1.0.0.jar ${root}/pz-ingest.jar
     """
@@ -51,6 +50,7 @@ node {
       cfSpace   = 'stage'
     }
     cfBgDeploy {
+      ldapCredentialId = 'pcf_user'
       cfDomain  = 'apps.sys.coastline.dg-cf-test.net'
       cfSpace   = 'stage'
     }
