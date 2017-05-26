@@ -26,20 +26,4 @@ node {
     """
   }
 
-/*  stage('CI Deploy') {
-    sh """
-      cp target/piazza-ingest-1.0.0.jar ${root}/pz-ingest.jar
-    """
-    cfPush
-  }
-
-   
-  stage('Staging Deploy') {
-    cfPush {
-      cfDomain  = 'apps.sys.coastline.dg-cf-test.net'
-      cfSpace   = 'stage'
-      ldapCredentialId = 'pcf_user'
-    }
-  } */
-
 }
