@@ -27,6 +27,7 @@ node {
   }
 
   stage('CI Deploy') {
+    ldapCredentialId = pcf_user
     sh """
       cp target/piazza-ingest-1.0.0.jar ${root}/pz-ingest.jar
     """
