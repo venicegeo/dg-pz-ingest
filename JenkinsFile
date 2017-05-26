@@ -33,9 +33,6 @@ node {
     cfPush
   }
 
-  stage('Integration Testing') {
-    postman()
-  }
    
   stage('Staging Deploy') {
     cfPush {
@@ -45,7 +42,4 @@ node {
     }
   }
 
-  stage('Cleanup') {
-    deleteDir()
-  }
 }
