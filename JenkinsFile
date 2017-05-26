@@ -26,7 +26,7 @@ node {
     """
   }
 
-  stage('CI Deploy') {
+/*  stage('CI Deploy') {
     sh """
       cp target/piazza-ingest-1.0.0.jar ${root}/pz-ingest.jar
     """
@@ -40,6 +40,6 @@ node {
       cfSpace   = 'stage'
       ldapCredentialId = 'pcf_user'
     }
-  }
+  } */
 
 }
